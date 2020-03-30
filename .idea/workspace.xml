@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="281506d3-ecd5-468b-998a-d53ae925b69a" name="Default Changelist" comment="" />
+    <list default="true" id="10c5301d-c482-47d0-a95b-8e40992b60b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/jogoAps/jogoAps.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APS-Codigo/Main.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1ZrezHLUWpx2ewsR0SsSyUA7OTl" />
+  <component name="ProjectId" id="1ZrgTPjy6ikQy86Ff6KAz61SUIm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -18,31 +31,128 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java 13" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/jogoAps" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\juscl\Documents\GitHub" />
+      <recent name="C:\Users\juscl\Documents\GitHub\APS-Casthor" />
+    </key>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\juscl\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="281506d3-ecd5-468b-998a-d53ae925b69a" name="Default Changelist" comment="" />
-      <created>1585601901008</created>
+      <changelist id="10c5301d-c482-47d0-a95b-8e40992b60b4" name="Default Changelist" comment="" />
+      <created>1585602633809</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1585601901008</updated>
-      <workItem from="1585601904985" duration="33000" />
+      <updated>1585602633809</updated>
+      <workItem from="1585602635036" duration="848000" />
+      <workItem from="1585603505070" duration="1297000" />
+      <workItem from="1585604914313" duration="197000" />
+      <workItem from="1585605728730" duration="681000" />
+      <workItem from="1585606543563" duration="993000" />
+      <workItem from="1585607552996" duration="830000" />
+      <workItem from="1585608385007" duration="630000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$/APS-Casthor" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1585601935862">
+    <state x="552" y="178" key="#Notifications" timestamp="1585603530140">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585601935862" />
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585603530140" />
+    <state x="570" y="70" key="#Project_Structure" timestamp="1585607306460">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2352" y="163" key="#Project_Structure/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1585606271001" />
+    <state x="570" y="70" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1585607306460" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585608991472">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585605829297" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585608991472" />
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585608844095">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585606318444" />
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585608844095" />
+    <state x="707" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585608869586">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1585608869586" />
+    <state x="1123" y="230" key="FileChooserDialogImpl" timestamp="1585608788801">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1123" y="230" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585608788801" />
+    <state x="629" y="202" key="SettingsEditor" timestamp="1585608114129">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="629" y="202" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585604798986" />
+    <state x="629" y="202" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1585603482844" />
+    <state x="629" y="202" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585608114129" />
+    <state x="793" y="299" key="Vcs.Push.Dialog.v2" timestamp="1585607766730">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="793" y="299" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585607766730" />
+    <state x="2455" y="329" key="com.intellij.ide.util.TipDialog" timestamp="1585603523721">
+      <screen x="1920" y="0" width="1680" height="1010" />
+    </state>
+    <state x="2455" y="329" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585603523721" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585607738349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585604961690" />
+    <state x="2593" y="424" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1585606207709" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585607738349" />
   </component>
 </project>
