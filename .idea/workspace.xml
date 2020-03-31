@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10c5301d-c482-47d0-a95b-8e40992b60b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APS-Casthor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/APS-Casthor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/jogoAps.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/Idle_01.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/Walk_01.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/Walk_02.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/fogo.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/fundo.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/res/lenhador.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/src/jogoAps/Containe_Window.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/src/jogoAps/fase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/src/jogoAps/fire.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jogoAps/src/jogoAps/perso.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +95,7 @@
       <workItem from="1585656579329" duration="27000" />
       <workItem from="1585661792542" duration="2198000" />
       <workItem from="1585680207351" duration="3837000" />
+      <workItem from="1585693802103" duration="204000" />
     </task>
     <servers />
   </component>
