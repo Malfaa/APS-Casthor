@@ -37,15 +37,15 @@ public class fase extends JPanel implements ActionListener{
 		setFocusable(true); // personagem em foco para conseguir mexer
 		addKeyListener(new tecladoAdapter());
 		
-		ImageIcon referencia = new ImageIcon("res\\fundo.gif"); // imagem do fundo
+		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\fundo.gif"); // imagem do fundo
 		fundo = referencia.getImage();
-		ImageIcon Vida = new ImageIcon("res\\comVida.png");
+		ImageIcon Vida = new ImageIcon("jogoApsParteII\\src\\res\\comVida.png");
 		vermelho = Vida.getImage();
-		ImageIcon VidaB = new ImageIcon("res\\semVida.png");
+		ImageIcon VidaB = new ImageIcon("jogoApsParteII\\src\\res\\semVida.png");
 		branco = VidaB.getImage();
-		ImageIcon fimJogo = new ImageIcon("res\\GameOver.png");
+		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOver.png");
 		gameOver = fimJogo.getImage();
-		ImageIcon faseConcluida = new ImageIcon("res\\faseConcluida.png");
+		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluida.png");
 		concluida = faseConcluida.getImage();
 		
 		personagem = new perso();// persnagem

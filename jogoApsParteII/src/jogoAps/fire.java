@@ -20,7 +20,7 @@ public class fire {
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referencia = new ImageIcon("res\\martelo.gif"); // imagem do martelo
+		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\martelo.gif"); // imagem do martelo
 		
 		imagem = referencia.getImage();
 		
