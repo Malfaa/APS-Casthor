@@ -27,13 +27,13 @@ public class perso {
 	
 	public perso() { // imagem
 		
-		esquerda = new ImageIcon("jogoApsParteII\\src\\res\\casthoridleEsq.gif");// movimento: andando esquerda
+		esquerda = new ImageIcon("jogoApsParteII\\src\\res\\casthorwalkingEsq.gif");// movimento: andando esquerda
 
-		direita = new ImageIcon("jogoApsParteII\\src\\res\\casthoridle.gif");// movimento: andando direita
+		direita = new ImageIcon("jogoApsParteII\\src\\res\\casthorwalking.gif");// movimento: andando direita
 
         idle = new ImageIcon("jogoApsParteII\\src\\res\\casthorSegDir.gif"); //movimento: segurando para direita
 
-        Ref = new ImageIcon("jogoApsParteII\\src\\res\\casthoridle.gif");// movimento: parado
+        Ref = new ImageIcon("jogoApsParteII\\src\\res\\casthoridle.gif");// movimento: paradod
         imagem = Ref.getImage();
 		
 		
