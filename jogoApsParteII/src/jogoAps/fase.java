@@ -43,9 +43,9 @@ public class fase extends JPanel implements ActionListener{
 		vermelho = Vida.getImage();
 		ImageIcon VidaB = new ImageIcon("jogoApsParteII\\src\\res\\semVida.png");
 		branco = VidaB.getImage();
-		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOver.png");
+		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOverT.gif");// Novo design
 		gameOver = fimJogo.getImage();
-		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluida.png");
+		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluidaT.gif"); // Novo design
 		concluida = faseConcluida.getImage();
 		
 		personagem = new perso();// persnagem
@@ -97,7 +97,7 @@ public class fase extends JPanel implements ActionListener{
 		
 			if(getInimigos() == 0) {
 				
-				graficos.drawImage(concluida, 50, 70, null);
+				graficos.drawImage(concluida, 25, 88, null);
 			
 			}
 			if(personagem.getVidas() == 2) {
@@ -105,6 +105,7 @@ public class fase extends JPanel implements ActionListener{
 			}
 			
 			if(personagem.getVidas() == 1) {
+
 				graficos.drawImage(branco, 510, 15, null);
 				graficos.drawImage(branco, 460, 15, null);
 			}
@@ -114,7 +115,7 @@ public class fase extends JPanel implements ActionListener{
 				graficos.drawImage(branco, 510, 15, null);
 				graficos.drawImage(branco, 460, 15, null);
 				graficos.drawImage(branco, 410, 15, null);
-				graficos.drawImage(gameOver, -50, -95, null);
+				graficos.drawImage(gameOver, 45, 70, null);
 				personagem.setVisivel(false);
 				emJogo = false;
 				
