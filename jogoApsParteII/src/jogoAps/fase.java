@@ -223,8 +223,6 @@ public class fase extends JPanel implements ActionListener{
 		repaint();
 		
 	}
-	
-
 
 	private class tecladoAdapter extends KeyAdapter {
 
