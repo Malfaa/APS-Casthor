@@ -20,9 +20,9 @@ public class lenhador {
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\lenhador.gif"); // imagem do lenhador
+		ImageIcon referencia = new ImageIcon("res\\lenhador.gif"); // imagem do lenhador
 		lenhador = referencia.getImage();
-		ImageIcon volta = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorVolta.gif"); // imagem do lenhador
+		ImageIcon volta = new ImageIcon("res\\lenhadorVolta.gif"); // imagem do lenhador
 		lenhadorVolta = volta.getImage();
 		
 		this.largura = lenhador.getWidth(null);

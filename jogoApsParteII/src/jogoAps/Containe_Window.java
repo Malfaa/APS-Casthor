@@ -3,7 +3,6 @@ package jogoAps;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
@@ -21,7 +20,6 @@ public class Containe_Window extends JFrame {
 		});
 		//////////////////////////////
 		add(new fase());
-
 		setTitle("Lord of Casthor Tm"); //titulo do gamezinho
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //fecha ao clicar no X
 		setSize(565,300);// tamanho da tela 450,300
