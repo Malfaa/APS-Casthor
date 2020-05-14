@@ -14,10 +14,10 @@ public class LenhadorAtirador {
 	private boolean esquerdaAtk;
 	private int x, y;
 	private int altura, largura;
-	private boolean isVisivel;
-	public int contador;
+	private boolean isVisivel, AtiradorEsquerda, AtiradorDireita;
+	public int contador, contador2;
 
-	ImageIcon esquerda;
+	ImageIcon esquerda, direita;
 
 	private Image imagem;
 
@@ -25,17 +25,14 @@ public class LenhadorAtirador {
 
 	public LenhadorAtirador() { // imagem
 
-		esquerda = new ImageIcon("res\\lenhadorAzul.gif");
+		esquerda = new ImageIcon("res\\lenhadorAzul.png");
+		direita = new ImageIcon("res\\lenhadorAzulOposto.png");
 		imagem = esquerda.getImage();
 
 		setAltura(imagem.getHeight(null));
 		setLargura(imagem.getWidth(null));
 
 		fireAtirador = new ArrayList<fire>();
-
-		this.x = 520;
-		this.y = 210;
-		
 		
 
 	}
@@ -44,15 +41,37 @@ public class LenhadorAtirador {
 		return fireAtirador;
 	}
 
-	
 	public void atira() {
+		this.x = 490;
+		this.y = 172;
 		contador++;
+		if (contador < 650) {
+			imagem = esquerda.getImage();
+		} else {
+			ImageIcon atirando = new ImageIcon("res\\lenhadorAzulAtirando.png");
+			imagem = atirando.getImage();
+		}
 		if (contador > 700) {
 			atirar();
 			contador = 0;
 		}
 	}
-	
+
+	public void atiraE() {
+		this.x = 10;
+		this.y = 172;
+		contador2++;
+		if (contador2 < 650) {
+			imagem = direita.getImage();
+		} else {
+			ImageIcon atirando = new ImageIcon("res\\lenhadorAzulAtirandoOposto.png");
+			imagem = atirando.getImage();
+		}
+		if (contador2 > 700) {
+			atirar();
+			contador2 = 0;
+		}
+	}
 
 	public int getX() {
 		return x;
@@ -76,14 +95,13 @@ public class LenhadorAtirador {
 
 	public void atirar() {
 
-		this.fireAtirador.add(new fire(x + getLargura() - 50, y + getAltura() /4));
+		this.fireAtirador.add(new fire(x + getLargura() - 50, y + getAltura() / 4));
 
 	}
 
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, getLargura(), getAltura());
 	}
-
 
 	public boolean isEsquerdaAtk() {
 		return esquerdaAtk;

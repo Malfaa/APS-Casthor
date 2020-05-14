@@ -18,10 +18,9 @@ public class perso {
 	private double vidas = 3;
 	private int vidaEscudo = 3;
 	private int contadorTiro;
-	private boolean direita, esquerda, escudoD, escudoE, escudo;
+	private boolean direita, esquerda, escudoD, escudoE, escudo, AtkDireita, AtkEsquerda, controleE = true, controleD = true, pulo;
 
-	ImageIcon andandoDireita, andandoEsquerda, rodandoMarteloD, rodandoMarteloE, paradoD, paradoE, escudoDireita,
-			escudoEsquerda;
+	ImageIcon andandoDireita, andandoEsquerda, rodandoMarteloD, rodandoMarteloE, paradoD, paradoE, escudoDireita, escudoEsquerda;
 
 	private Image imagem;
 
@@ -54,6 +53,7 @@ public class perso {
 
 		this.x = 50;
 		this.y = 100;
+		y =157;
 
 	}
 
@@ -63,19 +63,20 @@ public class perso {
 
 	///// entrada de dados teclado para mexer
 	public void mexer() {
-
+		
+		System.out.println(x+ " , " +y);
 		contadorTiro++;
 		x += dx; // LIMITE TELA PERSONAGEM X
-		y += dy; // LIMITE Y "TRAVADO EM Y"
+		//y += dy; // LIMITE Y "TRAVADO EM Y"
 
-		if (this.x < -50) { // limite esquerdo
-			x = -50;
+		if (this.x < -10) { // limite esquerdo
+			x = -10;
 		}
 		if (this.x > 485) {
 			x = 485;
 		}
 
-		y = 157;
+		
 
 	}
 
@@ -114,7 +115,7 @@ public class perso {
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, largura - 73, altura);
+		return new Rectangle(x, y, largura - 80, altura -20);
 	}
 
 	public void keyPressed(KeyEvent tecla) {/// pressionando tecla
@@ -131,7 +132,7 @@ public class perso {
 		}
 
 		if (codigo == KeyEvent.VK_W) {
-			dy = -1;
+			pulo = true;
 
 		}
 
@@ -143,6 +144,12 @@ public class perso {
 			dx = -1;
 			imagem = andandoEsquerda.getImage();
 			setEscudo(false);
+			if(isControleE()) {
+				setAtkDireita(false);
+				setAtkEsquerda(true);
+			}
+			esquerda = true;
+			direita = false;
 
 		}
 
@@ -150,6 +157,12 @@ public class perso {
 			dx = 1;
 			imagem = andandoDireita.getImage();
 			setEscudo(false);
+			if(isControleD()) {
+				setAtkDireita(true);
+				setAtkEsquerda(false);
+			}
+			esquerda = false;
+			direita = true;
 		}
 
 		if (codigo == KeyEvent.VK_E) {
@@ -189,8 +202,7 @@ public class perso {
 		if (codigo == KeyEvent.VK_A) {
 			dx = 0;
 			imagem = paradoE.getImage();
-			esquerda = true;
-			direita = false;
+			
 		}
 
 		if (codigo == KeyEvent.VK_S) {
@@ -204,8 +216,7 @@ public class perso {
 		if (codigo == KeyEvent.VK_D) {
 			dx = 0;
 			imagem = paradoD.getImage();
-			esquerda = false;
-			direita = true;
+			
 		}
 	}
 
@@ -239,6 +250,58 @@ public class perso {
 
 	public void setVidaEscudo(int vidaEscudo) {
 		this.vidaEscudo = vidaEscudo;
+	}
+
+	public boolean isAtkDireita() {
+		return AtkDireita;
+	}
+
+	public void setAtkDireita(boolean atkDireita) {
+		AtkDireita = atkDireita;
+	}
+
+	public boolean isAtkEsquerda() {
+		return AtkEsquerda;
+	}
+
+	public void setAtkEsquerda(boolean atkEsquerda) {
+		AtkEsquerda = atkEsquerda;
+	}
+
+	public boolean isControleE() {
+		return controleE;
+	}
+
+	public void setControleE(boolean controleE) {
+		this.controleE = controleE;
+	}
+
+	public boolean isControleD() {
+		return controleD;
+	}
+
+	public void setControleD(boolean controleD) {
+		this.controleD = controleD;
+	}
+
+	public boolean isPulo() {
+		return pulo;
+	}
+
+	public void setPulo(boolean pulo) {
+		this.pulo = pulo;
+	}
+
+	public int getDy() {
+		return dy;
+	}
+
+	public void setDy(int dy) {
+		this.dy = dy;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 
 }

@@ -15,7 +15,7 @@ public class fire {
 	ImageIcon marteloD, marteloE, machadoE, machadoD, fogo;
 	
 	
-	private static final int LARGURA_TELA = 565; // Ate onde o fogo vai
+	private static final int LARGURA_TELA = 540; // Ate onde o fogo vai
 	private static final int LARGURA_TELA_E = 0;
 	private static final double VELOCIDADE = 1.5; // velocidade do fogo
 	
@@ -24,8 +24,9 @@ public class fire {
 		this.y = y;
 		
 		marteloD = new ImageIcon("res\\martelo.gif"); // imagem do martelo
-		marteloE = new ImageIcon("res\\martelo.gif");
+		marteloE = new ImageIcon("res\\marteloEsquerda.gif");
 		machadoE = new ImageIcon("res\\machadoLenhador.gif");
+		machadoD = new ImageIcon("res\\machadoLenhadorVolta.gif");
 		fogo = new ImageIcon("res\\fogo.gif");
 		
 		imagem = marteloD.getImage();
@@ -62,6 +63,7 @@ public class fire {
 	
 	public void mexerDireitaMachado() {
 		this.x += VELOCIDADE;
+		imagem = machadoD.getImage();
 		if(this.x > LARGURA_TELA) {
 			isVisivel = false;
 		}

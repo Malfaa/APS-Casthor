@@ -7,40 +7,65 @@ import javax.swing.ImageIcon;
 
 public class lenhador {
 	
-	private Image lenhador, lenhadorVolta;
+	ImageIcon lenhador, lenhadorVolta;
 	private int	x , y;
 	private int altura, largura;
-	private boolean	isVisivel;
+	private boolean	isVisivel, finalTela = true;
+	private Image imagem;
 	
 
 	private static final int LARGURA_TELA = 565; // Ate onde o fogo vai
-	private static final double VELOCIDADE = 0.0000001; // velocidade do lenhador
+	private static final int LARGURA_TELA_E = 0;
+	private static final double VELOCIDADE = 1; // velocidade do lenhador
 	
 	public lenhador (int x, int y) {
 		this.x = x;
 		this.y = y;
 		
-		ImageIcon referencia = new ImageIcon("res\\lenhador.gif"); // imagem do lenhador
-		lenhador = referencia.getImage();
-		ImageIcon volta = new ImageIcon("res\\lenhadorVolta.gif"); // imagem do lenhador
-		lenhadorVolta = volta.getImage();
+		lenhador = new ImageIcon("res\\lenhador.gif"); // imagem do lenhador
 		
-		this.largura = lenhador.getWidth(null);
-		this.altura = lenhador.getHeight(null);
+		lenhadorVolta = new ImageIcon("res\\lenhadorVolta.gif"); // imagem do lenhador
+	
+		imagem = lenhador.getImage();
+		
+		this.largura = imagem.getWidth(null);
+		this.altura = imagem.getHeight(null);
 		isVisivel = true;
 		
 		
 	}
 	public void mexer() {
-		if(this.x < -50) {
-			this.x = LARGURA_TELA;
-			this.x = (int) -VELOCIDADE;
-			lenhadorVolta.getGraphics();
-		}else {
+		if(this.x > 10 && finalTela) {
 			this.x -= VELOCIDADE;
+			imagem = lenhador.getImage();
+		}else {
+			finalTela = false;
+		}
+		if(finalTela == false){
+			this.x += VELOCIDADE;
+			imagem = lenhadorVolta.getImage();
+		}
+		if(this.x == 530) {
+			finalTela = true;
 		}
 	}
 
+	public void mexerE() {
+		if(this.x < 530 && finalTela) {
+			this.x += VELOCIDADE;
+			imagem = lenhadorVolta.getImage();
+		}else {
+			finalTela = false;
+		}
+		if(finalTela == false){
+			this.x -= VELOCIDADE;
+			imagem = lenhador.getImage();
+		}
+		if(this.x == 10) {
+			finalTela = true;
+		}
+	}
+	
 	public boolean isVisivel() {
 		return isVisivel;
 	}
@@ -50,11 +75,11 @@ public class lenhador {
 	}
 
 	public Image getLenhador() {
-		return lenhador;
+		return imagem;
 	}
 	
 	public Image getLenhadorVolta() {
-		return lenhadorVolta;
+		return imagem;
 	}
 
 	public int getX() {
@@ -68,7 +93,7 @@ public class lenhador {
 	
 	
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, largura, altura);	
+		return new Rectangle(x, y, largura-30, altura);	
 	}
 
 }
