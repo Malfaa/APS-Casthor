@@ -22,7 +22,7 @@ public class Loading extends JPanel implements ActionListener{
 	public Loading() {
 		fase fase1 = new fase();
 		fase1.removeAll();
-		ImageIcon referencia = new ImageIcon("res\\fundoLoading.jpg"); // imagem do fundo
+		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\fundoLoading.jpg"); // imagem do fundo
 		fundo = referencia.getImage();
 		
 	}

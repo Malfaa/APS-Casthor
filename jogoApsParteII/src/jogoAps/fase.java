@@ -1,22 +1,15 @@
 package jogoAps;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
+import javax.swing.*;
 
-import com.sun.prism.paint.Color;
+//import com.sun.prism.paint.Color;
 
 public class fase extends JPanel implements ActionListener {
 
@@ -32,6 +25,8 @@ public class fase extends JPanel implements ActionListener {
 
 	private int sequencia;
 
+	private JButton pressRes = new JButton("Reiniciar");
+
 	private List<lenhador> lenhador;
 	private int[][] coordenadas = { { 565, 172 } };
 	
@@ -44,22 +39,22 @@ public class fase extends JPanel implements ActionListener {
 		setFocusable(true); // personagem em foco para conseguir 
 		addKeyListener(new tecladoAdapter());
 
-		ImageIcon referencia = new ImageIcon("res\\fundo.gif"); // imagem do fundo
-		ImageIcon fase2 = new ImageIcon("res\\");
+		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\fundo.gif"); // imagem do fundo
+		ImageIcon fase2 = new ImageIcon("jogoApsParteII\\src\\res\\");
 		fundo = referencia.getImage();
-		ImageIcon Vida = new ImageIcon("res\\comVida.png");
+		ImageIcon Vida = new ImageIcon("jogoApsParteII\\src\\res\\comVida.png");
 		vermelho = Vida.getImage();
-		ImageIcon VidaB = new ImageIcon("res\\semVida.png");
+		ImageIcon VidaB = new ImageIcon("jogoApsParteII\\src\\res\\semVida.png");
 		branco = VidaB.getImage();
-		ImageIcon fimJogo = new ImageIcon("res\\GameOverT.gif");
+		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOverT.gif");
 		gameOver = fimJogo.getImage();
-		ImageIcon faseConcluida = new ImageIcon("res\\faseConcluidaT.gif");
+		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluidaT.gif");
 		concluida = faseConcluida.getImage();
-		ImageIcon meiaV = new ImageIcon("res\\meiaVida.png");
+		ImageIcon meiaV = new ImageIcon("jogoApsParteII\\src\\res\\meiaVida.png");
 		meiaVida = meiaV.getImage();
-		ImageIcon TLoading = new ImageIcon("res\\fundoLoading.jpg");
+		ImageIcon TLoading = new ImageIcon("jogoApsParteII\\src\\res\\fundoLoading.jpg");
 		Loading = TLoading.getImage();
-		ImageIcon Icone = new ImageIcon("res\\casthor.gif");
+		ImageIcon Icone = new ImageIcon("jogoApsParteII\\src\\res\\casthor.gif");
 		icone = Icone.getImage();
 
 		personagem = new perso();// persnagem
@@ -76,6 +71,8 @@ public class fase extends JPanel implements ActionListener {
 
 		timer = new Timer(5, this); // velocidade q a tela repinta o fundo
 		timer.start();
+
+		add(pressRes);
 	}
 
 	public void inicializaLenhador() {
@@ -207,6 +204,18 @@ public class fase extends JPanel implements ActionListener {
 				graficos.drawImage(gameOver, 50, 60, null); // imagem game over
 				personagem.setVisivel(false);
 				emJogo = false;
+				//g.clearRect(0, 0, 565, 300);
+				/*pressRes.setVisible(true);// colocar botão
+				pressRes.setBounds(175,125,250,250);
+				pressRes.setBackground(Color.GRAY);
+				pressRes.addActionListener( new ActionListener(){
+					public void actionPerformed(ActionEvent e)
+					{
+						//Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE
+						menu2.mudar = true;
+						new Containe_Window();
+					}
+				});*/
 			}
 		}
 

@@ -1,11 +1,8 @@
 package jogoAps;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 
 //// tela
 public class Containe_Window extends JFrame {
@@ -26,15 +23,14 @@ public class Containe_Window extends JFrame {
 		setLocationRelativeTo(null); //positicao onde  a tela aparece  null = centro	
 		setResizable(false); // travar a resolucao da tela
 		setVisible(true); //visibilidade da tela
-		
+ 
 		/////////////////////////////////////////////////////////////////////////////////////////////
 
 	}
 
 	public static void main(String[] args) {
 
-		new menu ();
-		//new Containe_Window
+		new menu();
 
 		////////////////////////////////
 	}

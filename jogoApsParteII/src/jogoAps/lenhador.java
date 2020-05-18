@@ -22,9 +22,9 @@ public class lenhador {
 		this.x = x;
 		this.y = y;
 		
-		lenhador = new ImageIcon("res\\lenhador.gif"); // imagem do lenhador
+		lenhador = new ImageIcon("jogoApsParteII\\src\\res\\lenhador.gif"); // imagem do lenhador
 		
-		lenhadorVolta = new ImageIcon("res\\lenhadorVolta.gif"); // imagem do lenhador
+		lenhadorVolta = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorVolta.gif"); // imagem do lenhador
 	
 		imagem = lenhador.getImage();
 		

@@ -28,21 +28,21 @@ public class perso {
 
 	public perso() { // imagem
 
-		andandoEsquerda = new ImageIcon("res\\casthorwalkingEsq.gif");// movimento: andando esquerda
+		andandoEsquerda = new ImageIcon("jogoApsParteII\\src\\res\\casthorwalkingEsq.gif");// movimento: andando esquerda
 
-		andandoDireita = new ImageIcon("res\\casthorwalking.gif");// movimento: andando direita
+		andandoDireita = new ImageIcon("jogoApsParteII\\src\\res\\casthorwalking.gif");// movimento: andando direita
 
-		rodandoMarteloD = new ImageIcon("res\\casthorSegDir.gif"); // movimento: segurando para direita
+		rodandoMarteloD = new ImageIcon("jogoApsParteII\\src\\res\\casthorSegDir.gif"); // movimento: segurando para direita
 
-		rodandoMarteloE = new ImageIcon("res\\rodarMarteloEsquerda.gif");
+		rodandoMarteloE = new ImageIcon("jogoApsParteII\\src\\res\\casthorSegEsq.gif");
 
-		paradoD = new ImageIcon("res\\casthoridle.gif");// movimento: parado direita
+		paradoD = new ImageIcon("jogoApsParteII\\src\\res\\casthoridle.gif");// movimento: parado direita
 
-		paradoE = new ImageIcon("res\\casthorEsquerda.gif");// movimento:parado esquerda
+		paradoE = new ImageIcon("jogoApsParteII\\src\\res\\casthorEsquerda.gif");// movimento:parado esquerda
 
-		escudoDireita = new ImageIcon("res\\casthorComEscudo.gif"); // movimento: escudo vidado para direita
+		escudoDireita = new ImageIcon("jogoApsParteII\\src\\res\\casthorComEscudo.gif"); // movimento: escudo vidado para direita
 
-		escudoEsquerda = new ImageIcon("res\\casthorComEscudoEsq.gif"); // movimento: escudo vidado para esquerda
+		escudoEsquerda = new ImageIcon("jogoApsParteII\\src\\res\\casthorComEscudoEsq.gif"); // movimento: escudo vidado para esquerda
 
 		imagem = paradoD.getImage();
 

@@ -25,8 +25,8 @@ public class LenhadorAtirador {
 
 	public LenhadorAtirador() { // imagem
 
-		esquerda = new ImageIcon("res\\lenhadorAzul.png");
-		direita = new ImageIcon("res\\lenhadorAzulOposto.png");
+		esquerda = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzul.png");
+		direita = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzulOposto.png");
 		imagem = esquerda.getImage();
 
 		setAltura(imagem.getHeight(null));
@@ -48,7 +48,7 @@ public class LenhadorAtirador {
 		if (contador < 650) {
 			imagem = esquerda.getImage();
 		} else {
-			ImageIcon atirando = new ImageIcon("res\\lenhadorAzulAtirando.png");
+			ImageIcon atirando = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzulAtirando.png");
 			imagem = atirando.getImage();
 		}
 		if (contador > 700) {
@@ -64,7 +64,7 @@ public class LenhadorAtirador {
 		if (contador2 < 650) {
 			imagem = direita.getImage();
 		} else {
-			ImageIcon atirando = new ImageIcon("res\\lenhadorAzulAtirandoOposto.png");
+			ImageIcon atirando = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzulAtirandoOposto.png");
 			imagem = atirando.getImage();
 		}
 		if (contador2 > 700) {

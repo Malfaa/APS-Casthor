@@ -23,11 +23,11 @@ public class fire {
 		this.x = x;
 		this.y = y;
 		
-		marteloD = new ImageIcon("res\\martelo.gif"); // imagem do martelo
-		marteloE = new ImageIcon("res\\marteloEsquerda.gif");
-		machadoE = new ImageIcon("res\\machadoLenhador.gif");
-		machadoD = new ImageIcon("res\\machadoLenhadorVolta.gif");
-		fogo = new ImageIcon("res\\fogo.gif");
+		marteloD = new ImageIcon("jogoApsParteII\\src\\res\\martelo.gif"); // imagem do martelo
+		marteloE = new ImageIcon("jogoApsParteII\\src\\res\\marteloEsquerda.gif");
+		machadoE = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhador.gif");
+		machadoD = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhadorVolta.gif");
+		fogo = new ImageIcon("jogoApsParteII\\src\\res\\fogo.gif");
 		
 		imagem = marteloD.getImage();
 		
