@@ -1,13 +1,16 @@
 package jogoAps;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;//nono
+import java.io.IOException;
 
 public class menu {
     //Frame
-    JFrame menu2 = new JFrame();
+    JFrame menu = new JFrame();
 
     //Painel
     JPanel principal = new JPanel();
@@ -26,7 +29,6 @@ public class menu {
     private Image background;
     ImageIcon fundo = new ImageIcon("jogoApsParteII\\src\\res\\fundoFloresta.png");
 
-    static boolean mudar = false;
 
     public class Tela extends JPanel{
         public void paintComponent(Graphics g) {
@@ -43,7 +45,7 @@ public class menu {
         tituloL.setFont(fonteTitulo);
     }
     public void Iniciar(){
-      //  iniciarB.setBounds(230,125,120,50);
+        //  iniciarB.setBounds(230,125,120,50);
         iniciarB.setForeground(Color.WHITE);
         iniciarB.setBackground(Color.GRAY);
         iniciarB.setFont(fonteBotao);
@@ -55,16 +57,27 @@ public class menu {
         dificuldadeB.setFont(fonteBotao);
     }
 
-    public menu() {
+    //Tocar música
+    public void play(String MenuOST) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
+        File musica = new File("jogoApsParteII\\src\\res\\MainMenuOST.wav");
+        AudioInputStream colocarMusica = AudioSystem.getAudioInputStream(musica);
+        final Clip play = AudioSystem.getClip();
+        play.open(colocarMusica);
+        FloatControl volume= (FloatControl) play.getControl(FloatControl.Type.MASTER_GAIN);
+        volume.setValue(1.0f); // Reduce volume by 10 decibels.
+        play.start();
+    }
 
-        menu2.setSize(565, 300);
-        menu2.setLocationRelativeTo(null);
-        menu2.setResizable(false);
-        menu2.setVisible(true);
-        menu2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public menu() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+
+        menu.setSize(565, 300);
+        menu.setLocationRelativeTo(null);
+        menu.setResizable(false);
+        menu.setVisible(true);
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Tela tela = new Tela();
-        menu2.setContentPane(tela);
+        menu.setContentPane(tela);
         tela.setLayout(new GridBagLayout());
 
         tela.add(tituloL);
@@ -74,11 +87,13 @@ public class menu {
         Titulo();
         Iniciar();
         Dificuldade();
+        play("MenuOST");
+
 
         iniciarB.addActionListener( new ActionListener(){
-            public void actionPerformed(ActionEvent e)
-            {
-                menu2.dispose();
+            public void actionPerformed(ActionEvent e) {
+                menu.dispose();
+                //play.stop();
                 new Containe_Window();
             }
         });

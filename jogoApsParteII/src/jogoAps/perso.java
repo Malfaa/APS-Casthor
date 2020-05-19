@@ -51,7 +51,7 @@ public class perso {
 
 		fires = new ArrayList<fire>();
 
-		this.x = 50;
+		this.x = 200;
 		this.y = 100;
 		y =157;
 
@@ -64,7 +64,6 @@ public class perso {
 	///// entrada de dados teclado para mexer
 	public void mexer() {
 		
-		System.out.println(x+ " , " +y);
 		contadorTiro++;
 		x += dx; // LIMITE TELA PERSONAGEM X
 		//y += dy; // LIMITE Y "TRAVADO EM Y"
@@ -302,6 +301,10 @@ public class perso {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public void setX(int x) {
+		this.x = x;
 	}
 
 }

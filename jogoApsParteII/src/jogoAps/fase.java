@@ -16,27 +16,28 @@ public class fase extends JPanel implements ActionListener {
 	private Image fundo;
 	private LenhadorAtirador atirador, atiradorE;
 	private perso personagem;
+	private Boss boss;
 	private Timer timer;
-	private int inimigos = 6, QtdLenhadores = 3, QtdAtiradores = 0, QtdLenhadoresE =3, QtdAtiradoresE = 0, fases;
+	private int inimigos = 5, QtdLenhadores = 4, QtdAtiradores = 0, QtdLenhadoresE = 0, QtdAtiradoresE = 0, Boss,
+			fases = 1;
 	private boolean emJogo, foraLoading = true, fimJogo = false, subir = true, descer = false, spawnLenhador = false,
 			spawnLenhadorE = false;
 	private Image vermelho, branco, gameOver, concluida, meiaVida, Loading, icone;
-	private double contador, contador2, contador3,contador4, chamarLoading, voltarLoading;
+	private double contador, contador2, contador3, contador4, contador5, contador6, chamarLoading, voltarLoading;
 
 	private int sequencia;
 
-	private JButton pressRes = new JButton("Reiniciar");
 
 	private List<lenhador> lenhador;
 	private int[][] coordenadas = { { 565, 172 } };
-	
+
 	private List<lenhador> lenhadorE;
 	private int[][] coordenadasLE = { { -200, 172 } };
 
 	public fase() {
 
 		setDoubleBuffered(true);
-		setFocusable(true); // personagem em foco para conseguir 
+		setFocusable(true); // personagem em foco para conseguir
 		addKeyListener(new tecladoAdapter());
 
 		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\fundo.gif"); // imagem do fundo
@@ -60,19 +61,21 @@ public class fase extends JPanel implements ActionListener {
 		personagem = new perso();// persnagem
 
 		atirador = new LenhadorAtirador(); // atirador direita
-		
+
 		atiradorE = new LenhadorAtirador(); // atirador esquerda
+
+		boss = new Boss();
 
 		emJogo = true;
 
 		inicializaLenhador(); // spawn lenhador correndo direita
-		
+
 		inicializaLenhadorE(); // spawn lenhador correndo esquerda
 
 		timer = new Timer(5, this); // velocidade q a tela repinta o fundo
 		timer.start();
 
-		add(pressRes);
+		boss.setVisivel(false);
 	}
 
 	public void inicializaLenhador() {
@@ -83,7 +86,7 @@ public class fase extends JPanel implements ActionListener {
 			lenhador.add(new lenhador(coordenadas[i][0], coordenadas[i][1]));
 		}
 	}
-	
+
 	public void inicializaLenhadorE() {
 
 		lenhadorE = new ArrayList<lenhador>();
@@ -103,27 +106,48 @@ public class fase extends JPanel implements ActionListener {
 
 			if (emJogo) {
 
-				graficos.drawImage(personagem.getImagem(), personagem.getX(), personagem.getY(), this); // imagem personagem
+				graficos.drawImage(personagem.getImagem(), personagem.getX(), personagem.getY(), this); // imagem
+																										// personagem
 
 				if (contador >= 500 && getQtdAtiradores() != 0) {
 					atirador.setVisivel(true);
 					if (atirador.isVisivel()) {
-						graficos.drawImage(atirador.getImagem(), atirador.getX(), atirador.getY(), this); // imagem atirador direita
+						graficos.drawImage(atirador.getImagem(), atirador.getX(), atirador.getY(), this); // imagem
+																											// atirador
+																											// direita
 					}
 				}
-				
+
 				if (contador3 >= 700 && getQtdAtiradoresE() != 0) {
 					atiradorE.setVisivel(true);
 					if (atiradorE.isVisivel()) {
-						graficos.drawImage(atiradorE.getImagem(), atiradorE.getX(), atiradorE.getY(), this); // imagem atirador esquerda
+						graficos.drawImage(atiradorE.getImagem(), atiradorE.getX(), atiradorE.getY(), this); // imagem
+																												// atirador
+																												// esquerda
+					}
+				}
+
+				if (fases == 5 && contador6 > 1200) {
+					if (boss.getVidas() >= 0) {
+						boss.setVisivel(true);
+						if (boss.getVidas() == 2) {
+							graficos.drawImage(boss.getImagem(), boss.getX(), boss.getY(), this);
+							graficos.drawImage(boss.getImagemVida(), boss.getX() + 15, boss.getY(), this);
+						}
+						if (boss.getVidas() == 1) {
+							graficos.drawImage(boss.getImagem(), boss.getX(), boss.getY(), this);
+							graficos.drawImage(boss.getImagemMeiaVida(), boss.getX() + 15, boss.getY(), this);
+						}
 					}
 				}
 
 				List<fire> fires = personagem.getFires(); // martelo personagem
 
 				List<fire> fireAtirador = atirador.getFires(); // machado lenhador direita
-				
+
 				List<fire> fireAtiradorE = atiradorE.getFires(); // machado lenhador esquerda
+
+				List<fire> fireBoss = boss.getFires();
 
 				for (int i = 0; i < fires.size(); i++) {
 
@@ -138,10 +162,19 @@ public class fase extends JPanel implements ActionListener {
 						graficos.drawImage(f.getImagem(), f.getX(), f.getY(), this); // imagem machado atirador direita
 					}
 				}
-				
-				for (int i = 0; i < fireAtiradorE.size(); i++) {
+				if (boss.isVisivel()) {
+					for (int i = 0; i < fireAtiradorE.size(); i++) {
 
-					fire f = (fire) fireAtiradorE.get(i);
+						fire f = (fire) fireAtiradorE.get(i);
+						if (f.isVisivel()) {
+							graficos.drawImage(f.getImagem(), f.getX(), f.getY(), this); // imagem machado atirador
+																							// esquerda
+						}
+					}
+				}
+				for (int i = 0; i < fireBoss.size(); i++) {
+
+					fire f = (fire) fireBoss.get(i);
 					if (f.isVisivel()) {
 						graficos.drawImage(f.getImagem(), f.getX(), f.getY(), this); // imagem machado atirador esquerda
 					}
@@ -150,13 +183,15 @@ public class fase extends JPanel implements ActionListener {
 				for (int i = 0; i < lenhador.size(); i++) {
 
 					lenhador in = lenhador.get(i);
-					graficos.drawImage(in.getLenhador(), in.getX(), in.getY(), this); // imagem lenhador correndo direita
+					graficos.drawImage(in.getLenhador(), in.getX(), in.getY(), this); // imagem lenhador correndo
+																						// direita
 				}
-				
+
 				for (int i = 0; i < lenhadorE.size(); i++) {
 
 					lenhador inE = lenhadorE.get(i);
-					graficos.drawImage(inE.getLenhador(), inE.getX(), inE.getY(), this); // imagem lenhador correndo esquerda
+					graficos.drawImage(inE.getLenhador(), inE.getX(), inE.getY(), this); // imagem lenhador correndo
+																							// esquerda
 				}
 
 				graficos.drawString("INIMIGOS RESTANTES: " + getInimigos(), 5, 15);
@@ -184,13 +219,13 @@ public class fase extends JPanel implements ActionListener {
 			}
 
 			if (personagem.getVidas() == 1) {
-				graficos.drawImage(branco, 510, 15, null); // imagem coração branco 
+				graficos.drawImage(branco, 510, 15, null); // imagem coração branco
 				graficos.drawImage(branco, 460, 15, null); // imagem coração branco
 				sequencia = 0;
 			}
 
 			if (personagem.getVidas() == 0.5) {
-				graficos.drawImage(branco, 510, 15, null); // imagem coração branco 
+				graficos.drawImage(branco, 510, 15, null); // imagem coração branco
 				graficos.drawImage(branco, 460, 15, null); // imagem coração branco
 				graficos.drawImage(meiaVida, 410, 15, null); // imagem meio coração
 				sequencia = 0;
@@ -204,18 +239,6 @@ public class fase extends JPanel implements ActionListener {
 				graficos.drawImage(gameOver, 50, 60, null); // imagem game over
 				personagem.setVisivel(false);
 				emJogo = false;
-				//g.clearRect(0, 0, 565, 300);
-				/*pressRes.setVisible(true);// colocar botão
-				pressRes.setBounds(175,125,250,250);
-				pressRes.setBackground(Color.GRAY);
-				pressRes.addActionListener( new ActionListener(){
-					public void actionPerformed(ActionEvent e)
-					{
-						//Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE Não EXECUTA SEM DISPOSE
-						menu2.mudar = true;
-						new Containe_Window();
-					}
-				});*/
 			}
 		}
 
@@ -229,39 +252,51 @@ public class fase extends JPanel implements ActionListener {
 				g.drawImage(Loading, 0, 0, null); // imagem loading
 				g.drawImage(icone, 470, 190, null); // icone casthor piscando
 				voltarLoading++; // contador
-				fases = 2; // chama fase 2
+				if (fases < 2) {
+					fases = 2; // chama fase 2
+				}
 				if (voltarLoading > 500) {
 					// fase 2
-					if (fases == 2) { 
-						g.clearRect(0, 0, 565, 300); // limap tela
+					if (fases == 2) {
+						g.clearRect(0, 0, 565, 300); // limpa tela
 						setInimigos(10); // quantidade de inimigos na fase 2
 						setQtdLenhadores(7); // quantidade de lenhadores correndo direita
 						setQtdAtiradores(3); // quantidade de atiradores direita
 						foraLoading = true; // variavel para saber se esta dentro ou fora do loading
-						emJogo = true; 
+						emJogo = true;
 						chamarLoading = 0; // contador
 						voltarLoading = 0; // contador
 						fases = 3; // chama fase 3
+						personagem.setX(200);
 					}
 					// fase 3
 					else if (fases == 3) {
 						g.clearRect(0, 0, 565, 300);
 						setInimigos(15);
+						setQtdLenhadores(7); // quantidade de lenhadores correndo direita
+						setQtdAtiradores(2); // quantidade de atiradores direita
+						setQtdLenhadoresE(6);
 						foraLoading = true;
 						emJogo = true;
 						chamarLoading = 0;
 						voltarLoading = 0;
 						fases = 4;
-					} 
+						personagem.setX(200);
+					}
 					// fase 4
 					else if (fases == 4) {
 						g.clearRect(0, 0, 565, 300);
-						setInimigos(20);
+						setInimigos(11);
+						setQtdLenhadores(5); // quantidade de lenhadores correndo direita
+						setQtdAtiradores(1); // quantidade de atiradores direita
+						setQtdLenhadoresE(3);
+						setQtdAtiradoresE(1);
 						foraLoading = true;
 						emJogo = true;
 						chamarLoading = 0;
 						voltarLoading = 0;
 						fases = 5;
+						personagem.setX(200);
 					}
 				}
 			}
@@ -272,22 +307,25 @@ public class fase extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
+		System.out.println(getQtdLenhadoresE() + " , " + getQtdLenhadores() + " , " + fases);
+
 		if (foraLoading && getInimigos() != 0) {
 			if (getQtdAtiradores() != 0) {
 				contador++;
 			}
 			if (getQtdAtiradoresE() != 0) {
-				
 				contador3++;
 			}
+			contador5++;
+			contador6++;
 			contador2++;
 			contador4++;
-			if (contador2 > 600 && getQtdLenhadores() != 0 && spawnLenhador) {
+			if (contador2 > 600 && getQtdLenhadores() > 0 && spawnLenhador) {
 				inicializaLenhador();
 				contador2 = 0;
 				spawnLenhador = false;
 			}
-			if (contador4 > 900 && getQtdLenhadoresE() != 0 && spawnLenhadorE) {
+			if (contador4 > 1050 && getQtdLenhadoresE() > 0 && spawnLenhadorE) {
 				inicializaLenhadorE();
 				contador4 = 0;
 				spawnLenhadorE = false;
@@ -296,27 +334,28 @@ public class fase extends JPanel implements ActionListener {
 			if (personagem.isPulo()) {
 				if (subir) {
 					personagem.setY(personagem.getY() - 1);
-					if(personagem.getY() == 40) {
+					if (personagem.getY() == 40) {
 						subir = false;
 						descer = true;
 					}
 				}
-				if(descer) {
+				if (descer) {
 					personagem.setY(personagem.getY() + 1);
-					if(personagem.getY() == 157) {
+					if (personagem.getY() == 157) {
 						personagem.setPulo(false);
 						subir = true;
 						descer = false;
 					}
 				}
 			}
-			
 
 			List<fire> fires = personagem.getFires();
 
 			List<fire> fireAtirador = atirador.getFires();
-			
+
 			List<fire> fireAtiradorE = atiradorE.getFires();
+
+			List<fire> fireBoss = boss.getFires();
 
 			for (int i = 0; i < fires.size(); i++) {
 
@@ -328,7 +367,7 @@ public class fase extends JPanel implements ActionListener {
 
 				} else if (f.isVisivel() && sequencia >= 10 && personagem.isAtkDireita()) {
 					personagem.setControleE(false);
-					f.mexerS();
+					f.mexer();
 				} else if (f.isVisivel() && sequencia < 10 && personagem.isAtkEsquerda()) {
 					personagem.setControleD(false);
 					f.mexerE();
@@ -354,7 +393,7 @@ public class fase extends JPanel implements ActionListener {
 				}
 
 			}
-			
+
 			for (int i = 0; i < fireAtiradorE.size(); i++) {
 
 				fire f = (fire) fireAtiradorE.get(i);
@@ -367,6 +406,19 @@ public class fase extends JPanel implements ActionListener {
 
 			}
 
+			if (boss.isVisivel()) {
+				for (int i = 0; i < fireBoss.size(); i++) {
+
+					fire f = (fire) fireBoss.get(i);
+
+					if (f.isVisivel() && boss.isCorrida() == false) {
+						f.mexerEsquerdaMachado();
+					} else if (f.isVisivel() && boss.isCorrida() == true) {
+						boss.mexer();
+					}
+
+				}
+			}
 			for (int i = 0; i < lenhador.size(); i++) {
 
 				lenhador in = lenhador.get(i);
@@ -378,7 +430,7 @@ public class fase extends JPanel implements ActionListener {
 				}
 
 			}
-			
+
 			for (int i = 0; i < lenhadorE.size(); i++) {
 
 				lenhador in = lenhadorE.get(i);
@@ -395,6 +447,13 @@ public class fase extends JPanel implements ActionListener {
 			}
 			if (atiradorE.isVisivel()) {
 				atiradorE.atiraE();
+			}
+			if (boss.isCorrida() == false && boss.isVisivel()) {
+				if (contador5 > 500) {
+					boss.atira();
+				}
+			} else if (boss.isCorrida() == true && boss.isVisivel()) {
+				boss.mexer();
 			}
 			personagem.mexer();
 			repaint();
@@ -523,7 +582,7 @@ public class fase extends JPanel implements ActionListener {
 				}
 			}
 		}
-		
+
 		if (atiradorE.isVisivel()) {
 			List<fire> fireAtirador = atiradorE.getFires();
 			Rectangle formaAtirador = atiradorE.getBounds();
@@ -573,7 +632,7 @@ public class fase extends JPanel implements ActionListener {
 				}
 			}
 		}
-		
+
 		List<fire> fire = personagem.getFires();
 
 		for (int i = 0; i < fire.size(); i++) {
@@ -625,6 +684,59 @@ public class fase extends JPanel implements ActionListener {
 				}
 
 			}
+		}
+		if (boss.isVisivel()) {
+			List<fire> fireBoss = boss.getFires();
+			Rectangle formaBoss = boss.getBounds();
+			for (int i = 0; i < fireBoss.size(); i++) {
+
+				fire tempFire = fireBoss.get(i);
+				if (tempFire.isVisivel()) {
+					formaFire = tempFire.getBounds();
+					if (formaPerso.intersects(formaBoss)) {
+
+						boss.setVidas(boss.getVidas() - 1);
+						personagem.setVidas(personagem.getVidas() - 1);
+						if (boss.getVidas() == 0) {
+							setInimigos(getInimigos() - 1);
+							boss.setVisivel(false);
+						}
+
+					}
+					if (formaFire.intersects(formaPerso)) {
+						if (personagem.isEscudo() && personagem.isEscudoD()) {
+							personagem.setVidas(personagem.getVidas() - 0.5);
+							tempFire.setVisivel(false);
+						} else if (personagem.isEscudo() && personagem.isEscudoE()) {
+							tempFire.setVisivel(false);
+							personagem.setVidas(personagem.getVidas() - 1.5);
+						} else {
+							tempFire.setVisivel(false);
+							personagem.setVidas(personagem.getVidas() - 2);
+						}
+					}
+				}
+			}
+			List<fire> firePerso = personagem.getFires();
+
+			for (int i = 0; i < firePerso.size(); i++) {
+
+				fire tempFire = firePerso.get(i);
+				formaFire = tempFire.getBounds();
+
+				if (formaFire.intersects(formaBoss)) {
+
+					personagem.setControleE(true);
+					personagem.setControleD(true);
+					boss.setVidas(boss.getVidas() - 1);
+					tempFire.setVisivel(false);
+					if (boss.getVidas() == 0) {
+						setInimigos(getInimigos() - 1);
+						boss.setVisivel(false);
+					}
+				}
+			}
+
 		}
 	}
 
