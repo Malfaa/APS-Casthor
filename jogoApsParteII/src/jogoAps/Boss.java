@@ -2,7 +2,6 @@ package jogoAps;
 
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import javax.swing.ImageIcon;
 
 public class Boss {
 	private int x, y;
-	private int dx, dy;
 	private int altura, largura, contador, contador2;
 	private boolean isVisivel, finalTela = true, corrida = true;
 	private double vidas = 2;
@@ -54,7 +52,7 @@ public class Boss {
 		return fires;
 	}
 
-	///// entrada de dados teclado para mexer
+	// entrada de dados teclado para mexer
 	public void mexer() {
 		if (corrida == true) {
 			if (this.x > 0 && finalTela) {
@@ -126,14 +124,6 @@ public class Boss {
 
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, largura - 80, altura - 20);
-	}
-
-	public int getDy() {
-		return dy;
-	}
-
-	public void setDy(int dy) {
-		this.dy = dy;
 	}
 
 	public void setY(int y) {

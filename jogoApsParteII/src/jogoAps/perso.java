@@ -12,18 +12,15 @@ import javax.swing.ImageIcon;
 public class perso {
 
 	private int x, y;
-	private int dx, dy;
+	private int dx;
 	private int altura, largura;
 	private boolean isVisivel;
 	private double vidas = 3;
 	private int vidaEscudo = 3;
 	private int contadorTiro;
 	private boolean direita, esquerda, escudoD, escudoE, escudo, AtkDireita, AtkEsquerda, controleE = true, controleD = true, pulo;
-
 	ImageIcon andandoDireita, andandoEsquerda, rodandoMarteloD, rodandoMarteloE, paradoD, paradoE, escudoDireita, escudoEsquerda;
-
 	private Image imagem;
-
 	private List<fire> fires;
 
 	public perso() { // imagem
@@ -66,16 +63,12 @@ public class perso {
 		
 		contadorTiro++;
 		x += dx; // LIMITE TELA PERSONAGEM X
-		//y += dy; // LIMITE Y "TRAVADO EM Y"
-
 		if (this.x < -10) { // limite esquerdo
 			x = -10;
 		}
 		if (this.x > 485) {
 			x = 485;
 		}
-
-		
 
 	}
 
@@ -133,10 +126,6 @@ public class perso {
 		if (codigo == KeyEvent.VK_W) {
 			pulo = true;
 
-		}
-
-		if (codigo == KeyEvent.VK_S) {
-			dy = 1;
 		}
 
 		if (codigo == KeyEvent.VK_A) {
@@ -202,10 +191,6 @@ public class perso {
 			dx = 0;
 			imagem = paradoE.getImage();
 			
-		}
-
-		if (codigo == KeyEvent.VK_S) {
-			dy = 0;
 		}
 
 		if (codigo == KeyEvent.VK_W) {
@@ -289,14 +274,6 @@ public class perso {
 
 	public void setPulo(boolean pulo) {
 		this.pulo = pulo;
-	}
-
-	public int getDy() {
-		return dy;
-	}
-
-	public void setDy(int dy) {
-		this.dy = dy;
 	}
 
 	public void setY(int y) {

@@ -8,25 +8,22 @@ import javax.swing.ImageIcon;
 public class fire {
 	
 	private Image imagem;
-	private int	x , y;
-	private int largura, altura;
-	private boolean	isVisivel;
-	
-	ImageIcon marteloD, marteloE, machadoE, machadoD, fogo;
-	
-	
-	private static final int LARGURA_TELA = 540; // Ate onde o fogo vai
+	private int	x , y; //coordenadas iniciais
+	private int largura, altura; // altura e largura do martelo
+	private boolean	isVisivel; // visibilidade na tela do martelo
+	ImageIcon marteloD, marteloE, machadoE, machadoD, fogo; // Imagens do martelo
+	private static final int LARGURA_TELA = 540; // Ate onde o martelo vai
 	private static final int LARGURA_TELA_E = 0;
-	private static final double VELOCIDADE = 1.5; // velocidade do fogo
+	private static final double VELOCIDADE = 1.5; // velocidade do martelo
 	
-	public fire (int x, int y) {
+	public fire(int x, int y) {
 		this.x = x;
 		this.y = y;
 		
 		marteloD = new ImageIcon("jogoApsParteII\\src\\res\\martelo.gif"); // imagem do martelo
-		marteloE = new ImageIcon("jogoApsParteII\\src\\res\\marteloEsquerda.gif");
-		machadoE = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhador.gif");
-		machadoD = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhadorVolta.gif");
+		marteloE = new ImageIcon("jogoApsParteII\\src\\res\\marteloEsquerda.gif"); //imagem martelo esquerda
+		machadoE = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhador.gif"); //machado lenhador
+		machadoD = new ImageIcon("jogoApsParteII\\src\\res\\machadoLenhadorVolta.gif");//machado lenhador esq.
 		fogo = new ImageIcon("jogoApsParteII\\src\\res\\fogo.gif");
 		
 		imagem = marteloD.getImage();

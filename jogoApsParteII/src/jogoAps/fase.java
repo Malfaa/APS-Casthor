@@ -37,28 +37,27 @@ public class fase extends JPanel implements ActionListener {
 	public fase() {
 
 		setDoubleBuffered(true);
-		setFocusable(true); // personagem em foco para conseguir
+		setFocusable(true); // personagem em foco da tela
 		addKeyListener(new tecladoAdapter());
 
 		ImageIcon referencia = new ImageIcon("jogoApsParteII\\src\\res\\fundo.gif"); // imagem do fundo
-		ImageIcon fase2 = new ImageIcon("jogoApsParteII\\src\\res\\");
 		fundo = referencia.getImage();
-		ImageIcon Vida = new ImageIcon("jogoApsParteII\\src\\res\\comVida.png");
+		ImageIcon Vida = new ImageIcon("jogoApsParteII\\src\\res\\comVida.png"); //Imagem da vida
 		vermelho = Vida.getImage();
-		ImageIcon VidaB = new ImageIcon("jogoApsParteII\\src\\res\\semVida.png");
+		ImageIcon VidaB = new ImageIcon("jogoApsParteII\\src\\res\\semVida.png"); //Immagem sem vida
 		branco = VidaB.getImage();
-		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOverT.gif");
+		ImageIcon fimJogo = new ImageIcon("jogoApsParteII\\src\\res\\GameOverT.gif"); //GIF do game over
 		gameOver = fimJogo.getImage();
-		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluidaT.gif");
+		ImageIcon faseConcluida = new ImageIcon("jogoApsParteII\\src\\res\\faseConcluidaT.gif"); //GIF concluído
 		concluida = faseConcluida.getImage();
-		ImageIcon meiaV = new ImageIcon("jogoApsParteII\\src\\res\\meiaVida.png");
+		ImageIcon meiaV = new ImageIcon("jogoApsParteII\\src\\res\\meiaVida.png");// GIF meia vida
 		meiaVida = meiaV.getImage();
-		ImageIcon TLoading = new ImageIcon("jogoApsParteII\\src\\res\\fundoLoading.jpg");
+		ImageIcon TLoading = new ImageIcon("jogoApsParteII\\src\\res\\fundoLoading.jpg"); //GIF fundo Loading
 		Loading = TLoading.getImage();
-		ImageIcon Icone = new ImageIcon("jogoApsParteII\\src\\res\\casthor.gif");
+		ImageIcon Icone = new ImageIcon("jogoApsParteII\\src\\res\\casthor.gif"); // GIF Casthor  Loading
 		icone = Icone.getImage();
 
-		personagem = new perso();// persnagem
+		personagem = new perso();// personagem
 
 		atirador = new LenhadorAtirador(); // atirador direita
 
@@ -249,7 +248,7 @@ public class fase extends JPanel implements ActionListener {
 			if (chamarLoading > 500) {
 				foraLoading = false;
 				g.clearRect(0, 0, 565, 300); // limpa tela
-				g.drawImage(Loading, 0, 0, null); // imagem loading
+				g.drawImage(Loading, 0, 0, null); // imagem loadingd
 				g.drawImage(icone, 470, 190, null); // icone casthor piscando
 				voltarLoading++; // contador
 				if (fases < 2) {
@@ -259,9 +258,9 @@ public class fase extends JPanel implements ActionListener {
 					// fase 2
 					if (fases == 2) {
 						g.clearRect(0, 0, 565, 300); // limpa tela
-						setInimigos(10); // quantidade de inimigos na fase 2
-						setQtdLenhadores(7); // quantidade de lenhadores correndo direita
-						setQtdAtiradores(3); // quantidade de atiradores direita
+						setInimigos(5); // quantidade de inimigos na fase 2
+						setQtdLenhadores(3); // quantidade de lenhadores correndo direita
+						setQtdAtiradores(2); // quantidade de atiradores direita
 						foraLoading = true; // variavel para saber se esta dentro ou fora do loading
 						emJogo = true;
 						chamarLoading = 0; // contador
@@ -272,10 +271,10 @@ public class fase extends JPanel implements ActionListener {
 					// fase 3
 					else if (fases == 3) {
 						g.clearRect(0, 0, 565, 300);
-						setInimigos(15);
-						setQtdLenhadores(7); // quantidade de lenhadores correndo direita
-						setQtdAtiradores(2); // quantidade de atiradores direita
-						setQtdLenhadoresE(6);
+						setInimigos(6);
+						setQtdLenhadores(4); // quantidade de lenhadores correndo direita
+						setQtdAtiradores(1); // quantidade de atiradores direita
+						setQtdLenhadoresE(1);
 						foraLoading = true;
 						emJogo = true;
 						chamarLoading = 0;
@@ -286,11 +285,11 @@ public class fase extends JPanel implements ActionListener {
 					// fase 4
 					else if (fases == 4) {
 						g.clearRect(0, 0, 565, 300);
-						setInimigos(11);
-						setQtdLenhadores(5); // quantidade de lenhadores correndo direita
-						setQtdAtiradores(1); // quantidade de atiradores direita
-						setQtdLenhadoresE(3);
-						setQtdAtiradoresE(1);
+						setInimigos(1);
+						setQtdLenhadores(0); // quantidade de lenhadores correndo direita
+						setQtdAtiradores(0); // quantidade de atiradores direita
+						setQtdLenhadoresE(0);
+						setQtdAtiradoresE(0);
 						foraLoading = true;
 						emJogo = true;
 						chamarLoading = 0;
@@ -460,7 +459,7 @@ public class fase extends JPanel implements ActionListener {
 
 			if (getInimigos() != 0 && personagem.getVidas() != 0) {
 
-				checarColisoes();
+				Colisoes();
 			}
 
 		}
@@ -470,7 +469,7 @@ public class fase extends JPanel implements ActionListener {
 
 	}
 
-	public void checarColisoes() {
+	public void Colisoes() {
 
 		Rectangle formaPerso = personagem.getBounds();
 		Rectangle formaFire;
@@ -565,9 +564,8 @@ public class fase extends JPanel implements ActionListener {
 
 			for (int i = 0; i < fire.size(); i++) {
 
-				fire tempFire = fire.get(i);
+				jogoAps.fire tempFire = fire.get(i);
 				formaFire = tempFire.getBounds();
-
 				if (formaFire.intersects(formaAtirador)) {
 
 					personagem.setControleE(true);
@@ -615,7 +613,7 @@ public class fase extends JPanel implements ActionListener {
 
 			for (int i = 0; i < fire.size(); i++) {
 
-				fire tempFire = fire.get(i);
+				jogoAps.fire tempFire = fire.get(i);
 				formaFire = tempFire.getBounds();
 
 				if (formaFire.intersects(formaAtirador)) {
@@ -637,7 +635,7 @@ public class fase extends JPanel implements ActionListener {
 
 		for (int i = 0; i < fire.size(); i++) {
 
-			fire tempFire = fire.get(i);
+			jogoAps.fire tempFire = fire.get(i);
 			formaFire = tempFire.getBounds();
 
 			for (int j = 0; j < lenhador.size(); j++) {
@@ -662,7 +660,7 @@ public class fase extends JPanel implements ActionListener {
 		}
 		for (int i = 0; i < fire.size(); i++) {
 
-			fire tempFire = fire.get(i);
+			jogoAps.fire tempFire = fire.get(i);
 			formaFire = tempFire.getBounds();
 
 			for (int j = 0; j < lenhadorE.size(); j++) {
@@ -686,11 +684,11 @@ public class fase extends JPanel implements ActionListener {
 			}
 		}
 		if (boss.isVisivel()) {
-			List<fire> fireBoss = boss.getFires();
+			List<jogoAps.fire> fireBoss = boss.getFires();
 			Rectangle formaBoss = boss.getBounds();
 			for (int i = 0; i < fireBoss.size(); i++) {
 
-				fire tempFire = fireBoss.get(i);
+				jogoAps.fire tempFire = fireBoss.get(i);
 				if (tempFire.isVisivel()) {
 					formaFire = tempFire.getBounds();
 					if (formaPerso.intersects(formaBoss)) {
@@ -717,11 +715,11 @@ public class fase extends JPanel implements ActionListener {
 					}
 				}
 			}
-			List<fire> firePerso = personagem.getFires();
+			List<jogoAps.fire> firePerso = personagem.getFires();
 
 			for (int i = 0; i < firePerso.size(); i++) {
 
-				fire tempFire = firePerso.get(i);
+				jogoAps.fire tempFire = firePerso.get(i);
 				formaFire = tempFire.getBounds();
 
 				if (formaFire.intersects(formaBoss)) {

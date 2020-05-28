@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;//nono
+import java.io.File;
 import java.io.IOException;
 
 public class menu {
@@ -18,15 +18,12 @@ public class menu {
     //Complementos
     JLabel tituloL = new JLabel("Lord of Casthor");
     JButton iniciarB = new JButton("Iniciar");
-    JButton dificuldadeB = new JButton("Dificuldade");
-    GridBagConstraints gbc = new GridBagConstraints();
 
     //Fontes
     Font fonteTitulo = new Font("Arial",Font.BOLD,30);
     Font fonteBotao = new Font("Arial", Font.BOLD,14);
 
     //Imagens
-    private Image background;
     ImageIcon fundo = new ImageIcon("jogoApsParteII\\src\\res\\fundoFloresta.png");
 
 
@@ -39,23 +36,21 @@ public class menu {
     }
 
     public void Titulo(){
-        //tituloL.setBounds(145,10,400,400);
         tituloL.setForeground(Color.WHITE);
-        tituloL.setBackground(Color.GRAY);//.decode("#000000")
+        tituloL.setBackground(Color.GRAY);
         tituloL.setFont(fonteTitulo);
     }
     public void Iniciar(){
-        //  iniciarB.setBounds(230,125,120,50);
         iniciarB.setForeground(Color.WHITE);
         iniciarB.setBackground(Color.GRAY);
         iniciarB.setFont(fonteBotao);
     }
-    public void Dificuldade(){
-        //dificuldadeB.setBounds(230,185,120,50);
-        dificuldadeB.setForeground(Color.WHITE);
-        dificuldadeB.setBackground(Color.GRAY);
-        dificuldadeB.setFont(fonteBotao);
-    }
+
+    /*EXPLICAÇÃO CASO O MÉTODO "play" DÊ ERRO:
+      Houve uma tentativa de inserir o método play no menu, por conta do tempo, não foi possível fazer a alteração
+      da música para PARAR quando for iniciado a tela de JOGO e o tratamento
+      dos erros presentes nas IDES utilizadas para o desenvolvimento desse projeto.
+      CASO DÊ ERRO, DESCONSIDERAR O MÉTODO "play". */
 
     //Tocar música
     public void play(String MenuOST) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
@@ -64,7 +59,7 @@ public class menu {
         final Clip play = AudioSystem.getClip();
         play.open(colocarMusica);
         FloatControl volume= (FloatControl) play.getControl(FloatControl.Type.MASTER_GAIN);
-        volume.setValue(1.0f); // Reduce volume by 10 decibels.
+        volume.setValue(1.0f); // Reduzir volume para 10 decibels.
         play.start();
     }
 
@@ -82,18 +77,15 @@ public class menu {
 
         tela.add(tituloL);
         tela.add(iniciarB);
-        tela.add(dificuldadeB);
 
         Titulo();
         Iniciar();
-        Dificuldade();
         play("MenuOST");
 
 
         iniciarB.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 menu.dispose();
-                //play.stop();
                 new Containe_Window();
             }
         });

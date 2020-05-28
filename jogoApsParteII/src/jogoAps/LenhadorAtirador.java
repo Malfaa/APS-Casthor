@@ -3,7 +3,6 @@ package jogoAps;
 
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +10,9 @@ import javax.swing.ImageIcon;
 
 public class LenhadorAtirador {
 
-	private boolean esquerdaAtk;
 	private int x, y;
 	private int altura, largura;
-	private boolean isVisivel, AtiradorEsquerda, AtiradorDireita;
+	private boolean isVisivel;
 	public int contador, contador2;
 
 	ImageIcon esquerda, direita;
@@ -25,15 +23,14 @@ public class LenhadorAtirador {
 
 	public LenhadorAtirador() { // imagem
 
-		esquerda = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzul.png");
-		direita = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzulOposto.png");
+		esquerda = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzul.png"); // Imagem Lenhador Atirador
+		direita = new ImageIcon("jogoApsParteII\\src\\res\\lenhadorAzulOposto.png"); //Imagem Lenhador Atirador
 		imagem = esquerda.getImage();
 
 		setAltura(imagem.getHeight(null));
 		setLargura(imagem.getWidth(null));
 
 		fireAtirador = new ArrayList<fire>();
-		
 
 	}
 
@@ -101,14 +98,6 @@ public class LenhadorAtirador {
 
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, getLargura(), getAltura());
-	}
-
-	public boolean isEsquerdaAtk() {
-		return esquerdaAtk;
-	}
-
-	public void setEsquerdaAtk(boolean esquerdaAtk) {
-		this.esquerdaAtk = esquerdaAtk;
 	}
 
 	public int getAltura() {
