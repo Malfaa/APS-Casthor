@@ -42,7 +42,7 @@ public class fire {
 		}
 	}
 	
-	public void mexerS() {
+	public void mexer(int x) {
 		this.x += VELOCIDADE;
 		imagem = fogo.getImage();
 		if(this.x > LARGURA_TELA) {
