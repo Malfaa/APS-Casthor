@@ -21,9 +21,3 @@
 </br>
 </br>
 </br>
-
-</br>
-  <p align="center">
-    <img src="https://media.giphy.com/media/MM0Jrc8BHKx3y/giphy.gif">
-  </p>
-  
